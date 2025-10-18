@@ -12,31 +12,31 @@
 //
 // getTimeFromMinutes(-150) => "Ошибка, проверьте данные"
 
-// function getTimeFromMinutes(minutes) {
-//     let resultString = ''
-//     let hours = 0;
-//     let resultMinutes
-//
-//     if(minutes < 0 || isNaN(minutes) || !Number.isInteger(minutes)) {
-//         return "Ошибка, проверьте данные"
-//     }
-//
-//     if(minutes >= 60) {
-//         hours = Math.floor(minutes / 60);
-//         resultMinutes = minutes - hours * 60
-//         if(hours > 1 && hours < 5) {
-//             return resultString += `Это ${hours} часа и ${resultMinutes} минут`
-//         } else if(hours === 1) {
-//             return resultString += `Это ${hours} час и ${resultMinutes} минут`
-//         }
-//     } else {
-//         resultMinutes = minutes;
-//     }
-//
-//     return resultString += `Это ${hours} часов и ${resultMinutes} минут`
-// }
-//
-// console.log(getTimeFromMinutes(0))
+function getTimeFromMinutes(minutes) {
+    let resultString = ''
+    let hours = 0;
+    let resultMinutes
+
+    if(minutes < 0 || isNaN(minutes) || !Number.isInteger(minutes)) {
+        return "Ошибка, проверьте данные"
+    }
+
+    if(minutes >= 60) {
+        hours = Math.floor(minutes / 60);
+        resultMinutes = minutes - hours * 60
+        if(hours > 1 && hours < 5) {
+            return resultString += `Это ${hours} часа и ${resultMinutes} минут`
+        } else if(hours === 1) {
+            return resultString += `Это ${hours} час и ${resultMinutes} минут`
+        }
+    } else {
+        resultMinutes = minutes;
+    }
+
+    return resultString += `Это ${hours} часов и ${resultMinutes} минут`
+}
+
+console.log(getTimeFromMinutes(0))
 
 // 2) Напишите функцию, которая принимает в себя 4 числа и возвращает самое большее из них. Если один из аргументов не является числом или их меньше 4 - возвращается 0. Дробные числа разрешены.
 //
@@ -52,7 +52,7 @@ function findMaxNumber(...nums) {
     }
 
     for(let element of nums) {
-        if(isNaN(element)) {
+        if(typeof(element) !== "number" || isNaN(element)) {
             return 0
         }
     }
@@ -60,4 +60,4 @@ function findMaxNumber(...nums) {
     return Math.max(...nums)
 }
 
-console.log(findMaxNumber(1,2, 4, 45))
+console.log(findMaxNumber(1,2, '10', 45))
