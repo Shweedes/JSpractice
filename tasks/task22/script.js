@@ -26,15 +26,15 @@
 //
 // Решить задачу нужно через рекурсию.
 
-const factorialRecursion = (n) => {
+const factorial = (n) => {
     if(!Number.isInteger(n) || typeof(n) !== 'number') {
         return `Невалидные данные. Вы ввели ${this.n}, это не число или оно не целочисленное`
     }
     if(n <= 0) {
         return 1
+    } else {
+        return n * factorial(n - 1)
     }
-
-    return factorialRecursion(n - 1) * n
 }
 
-console.log(factorialRecursion(4))
+console.log(factorial(-1))
