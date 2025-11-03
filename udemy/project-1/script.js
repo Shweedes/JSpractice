@@ -72,7 +72,3 @@ function writeYourGenres() {
 }
 
 writeYourGenres()
-
-
-console.log(genres)
-
